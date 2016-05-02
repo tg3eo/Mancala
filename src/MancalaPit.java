@@ -2,12 +2,16 @@
 public class MancalaPit {
 
 	private int stones, previousStones;
-	private char player;
+	private boolean player;
 	
-	public MancalaPit(int initialStones, char thisPlayer){		//thisPlayer = A if A's turn, B if B's turn.
+	public MancalaPit(int initialStones, boolean thisPlayer){		//thisPlayer = A if A's turn, B if B's turn.
 		stones = initialStones;
 		previousStones = stones;
 		player = thisPlayer;
+	}
+	
+	public boolean getSidePlayed(){
+		return player;
 	}
 	
 	public void setStone(int stonesInPit){
@@ -37,9 +41,5 @@ public class MancalaPit {
 	//Sets the pit's stones into what it contained previously.
 	public void undo(){
 		stones = previousStones;
-	}
-	
-	public char sidePlayed(){
-		return player;
 	}
 }
