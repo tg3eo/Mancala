@@ -32,7 +32,7 @@ public class MancalaTester {
 	        p2 = new JPanel();
 	        p2.setLayout(null);
 	        frame.setSize(300, 200);
-	        
+	        frame.setTitle("Welcome to Mancala!");
 
 	        pane.add(p2);
 	        p2.add(stone3);
@@ -61,11 +61,11 @@ public class MancalaTester {
 	        p3.add(viewLabel);
 	        p3.add(viewTwo);
 	        
-	        viewLabel.setBounds(50, 20, 250, 50);
-	        viewOne.setBounds(70, 80, 50, 50);
-	        viewTwo.setBounds(150, 80, 50, 50);
-//	        viewFrame.setVisible(true);
-	        
+	        viewLabel.setBounds(150, 20, 250, 50);
+	        viewOne.setBounds(70, 80, 100, 100);
+	        viewTwo.setBounds(200, 80, 100, 100);
+	        viewFrame.setTitle("Select View");
+	        viewFrame.setSize(400, 400);
 	        stone3.addActionListener(new ActionListener(){
 
 				@Override
@@ -90,12 +90,14 @@ public class MancalaTester {
 	        viewOne.addActionListener(new ActionListener(){
 	        	public void actionPerformed(ActionEvent e){
 	        		MancalaGUI mg = new MancalaGUI(new BoardColoredOne());
+	        		MancalaBoard mb = new MancalaBoard(stones);
 	        		viewFrame.dispose();
 	        	}
 	        });
 	        viewTwo.addActionListener(new ActionListener(){
 	        	public void actionPerformed(ActionEvent e){
 	        		MancalaGUI mg = new MancalaGUI(new BoardColoredTwo());
+	        		MancalaBoard mb = new MancalaBoard(stones);
 	        		viewFrame.dispose();
 	        	}
 	        });

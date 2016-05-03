@@ -5,6 +5,13 @@ public class SaveState {
 	private boolean sidePlayed;
 	private MancalaPit[] savedMancala;
 	
+	public SaveState(){
+		playerAScore = 0;
+		playerBScore = 0;
+		sidePlayed = false;
+		savedMancala = new MancalaPit[14];
+	}
+	
 	public SaveState(MancalaBoard mBoard){
 		playerAScore = mBoard.getAMancala();
 		playerBScore = mBoard.getBMancala();

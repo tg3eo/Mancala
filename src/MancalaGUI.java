@@ -8,9 +8,11 @@ import javax.swing.JPanel;
 public class MancalaGUI {
 	
 	private JButton[] pitBtn;
+	private JButton undoButton;
 	private JPanel gamePanel;
 	private JPanel pitBtnsPanel;
 	private JFrame frame;
+	private MancalaBoard mb;
 	
 	public MancalaGUI(BoardLayout board){
 		
@@ -18,7 +20,6 @@ public class MancalaGUI {
 		
 		gamePanel = new JPanel();
 		JPanel buttonsPanel = new JPanel();
-		
 		pitBtnsPanel = new JPanel();
 		JButton mancalaA = new JButton("A");
 		JButton mancalaB = new JButton("B");
@@ -26,7 +27,7 @@ public class MancalaGUI {
 		pitBtn = new JButton[12];
 		gamePanel.add(mancalaA, BorderLayout.WEST);
 		for(int i = 0; i < pitBtn.length; i++){
-			pitButtons = new JButton("0");
+			pitButtons = new JButton("3");
 			pitBtn[i] = pitButtons;
 			pitBtnsPanel.add(pitButtons);
 		}
@@ -35,7 +36,7 @@ public class MancalaGUI {
 		gamePanel.add(mancalaB, BorderLayout.EAST);
 		
 		JButton playerTurnButton = new JButton("End Player's Turn");
-		JButton undoButton = new JButton("Undo");
+		undoButton = new JButton("Undo");
 		JButton quitButton = new JButton("Quit");
 		buttonsPanel.add(playerTurnButton);
 		buttonsPanel.add(undoButton);
@@ -46,6 +47,8 @@ public class MancalaGUI {
 		frame.add(buttonsPanel, BorderLayout.SOUTH);
 		frame.setVisible(true);
 		frame.setResizable(false);
+		frame.setTitle("Team Fox Force-Five Mancala Game");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 	}
 
@@ -63,5 +66,9 @@ public class MancalaGUI {
 	
 	public JButton[] getPits(){
 		return pitBtn;
+	}
+	
+	public JButton undoButton(){
+		return undoButton;
 	}
 }

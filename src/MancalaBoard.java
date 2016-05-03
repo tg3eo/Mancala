@@ -10,6 +10,8 @@ public class MancalaBoard {
 	private final int MANCALA_B = 13;
 	private boolean playedTurn = true;
 	private int stonesPlayed;
+	public int initStones;
+	private SaveState state;
 	private ArrayList<ChangeListener> listener;
 	
 	public MancalaBoard(){
@@ -34,23 +36,27 @@ public class MancalaBoard {
 	}
 	
 	public MancalaBoard(int initialStones){
+		initStones = initialStones;
 		mancalaPits = new MancalaPit[14];
 		for(int i = 0; i < MANCALA_A + 1; i++){
-			mancalaPits[i] = new MancalaPit(initialStones, true);
+			mancalaPits[i] = new MancalaPit(initStones, true);
 			if(i == 6){
 				mancalaPits[i] = new MancalaPit(0, true);
 			}
 		}
 		for(int j = MANCALA_A + 1; j < MANCALA_B + 1; j++){
-			mancalaPits[j] = new MancalaPit(initialStones, false);
+			mancalaPits[j] = new MancalaPit(initStones, false);
 			if(j == 13){
 				mancalaPits[j] = new MancalaPit(0, false);
 			}
 		}
 	}
 	
+	public int getInitialStones(){
+		return initStones;
+	}
+	
 	public void playGame(int index){
-		
 		stonesPlayed = mancalaPits[index].getStone();
 		mancalaPits[index].clearPit();
 		for(int i = index + 1; i < stonesPlayed + 1; i++){
@@ -101,15 +107,25 @@ public class MancalaBoard {
 	}
 	
 	public void winner(){
-		if(mancalaPits[6].getStone() > mancalaPits[13].getStone()){
+		if(mancalaPits[MANCALA_A].getStone() > mancalaPits[MANCALA_B].getStone()){
 			JOptionPane.showMessageDialog(null, "Player A is the winner!");
 		}
-		else if(mancalaPits[13].getStone() > mancalaPits[6].getStone()){
+		else if(mancalaPits[MANCALA_B].getStone() > mancalaPits[MANCALA_A].getStone()){
 			JOptionPane.showMessageDialog(null, "Player B is the winner!");
 		}
 	}
 	
-	public void gameOver(){
-		
+	public boolean gameOver(){
+		boolean gameOver = true;
+		for(int i = 0; i < mancalaPits.length; i++){
+			if(mancalaPits[i].getStone() != 0){
+				gameOver = false;
+			}
+		}
+		return gameOver;
+	}
+	
+	public void undo(){
+		System.out.println("Undo");
 	}
 }
