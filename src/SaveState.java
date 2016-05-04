@@ -1,46 +1,46 @@
-
 public class SaveState {
-	private int playerAScore;
-	private int playerBScore;
-	private boolean sidePlayed;
-	private MancalaPit[] savedMancala;
-	
-	public SaveState(){
-		playerAScore = 0;
-		playerBScore = 0;
-		sidePlayed = false;
-		savedMancala = new MancalaPit[14];
-	}
-	
-	public SaveState(MancalaBoard mBoard){
-		playerAScore = mBoard.getAMancala();
-		playerBScore = mBoard.getBMancala();
-		sidePlayed = mBoard.getSidePlayed();
-		savedMancala = mBoard.getMancalaPits();
-	}
-	
-	public SaveState(MancalaPit[] pits, boolean player){
-		sidePlayed = player;
-		playerAScore = pits[6].getStone();
-		playerBScore = pits[13].getStone();
-		for(int i = 0; i < pits.length; i++){
-			savedMancala[i] = pits[i+2];
-		}
-	}
-	
-	public int getAScore(){
-		return playerAScore;
-	}
-	
-	public int getBScore(){
-		return playerBScore;
-	}
-	
-	public boolean getSidePlayed(){
-		return sidePlayed;
-	}
-	
-	public MancalaPit[] getSavedMancala(){
-		return savedMancala;
-	}
+    private int playerA;
+    private int playerB;
+    private boolean playerTurn;
+    private int[] pitPoints;
+    private boolean izNull = false;
+
+    public SaveState(MancalaBoard d) {
+        if(d == null)
+            izNull = true;
+        else {
+            playerA = d.getPlayerAScore();
+            playerB = d.getPlayerBScore();
+            pitPoints = d.getPits();
+            playerTurn = d.getPlayerTurn();
+        }
+    }
+
+	public SaveState(int[] data, boolean player) {
+        playerTurn = player;
+        playerA = data[0];
+        playerB = data[1];
+        for(int i = 0; i < pitPoints.length; i++)
+            pitPoints[i] = data[i+2];
+    }
+
+    public boolean isNull() {
+        return izNull;
+    }
+
+    public int[] getPits() {
+        return pitPoints;
+    }
+
+    public int getAScore() {
+        return playerA;
+    }
+
+    public int getBScore() {
+        return playerB;
+    }
+
+    public boolean getTurn() {
+        return playerTurn;
+    }
 }
