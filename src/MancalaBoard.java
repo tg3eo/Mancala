@@ -13,16 +13,18 @@ public class MancalaBoard {
     private SaveState latestState;
     private boolean switchTurn;
     private int undosLeft;
+    private int numStones;
 
-    public MancalaBoard() {
+    public MancalaBoard(int numOfStones) {
         undosLeft = 3;
         playerA = 0;
         playerB = 0;
         playerTurn = true;
         switchTurn = false;
+        numStones = numOfStones;
         pits = new MancalaPit[12];
         for(int i = 0; i < pits.length; i++)
-            pits[i] = new MancalaPit(3);
+            pits[i] = new MancalaPit(numStones);
         latestState = new SaveState(null);
         listeners = new ArrayList<ChangeListener>();
     }

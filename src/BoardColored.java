@@ -18,8 +18,12 @@ public class BoardColored implements BoardLayout{
 	}
 	
 	public void changeColor(MancalaGUI g, Color c){
+		g.getGamePanel().setBackground(c);
+		g.getGamePanel().setForeground(c);
+		g.getBtnsPanel().setBackground(c);
+		g.getBtnsPanel().setForeground(c);
 		g.getFrame().setBackground(c);
-		g.getFrame().setForeground(c);
+		System.out.println("It should work...");
 		//		g.getBtnsPanel().setBackground(c);
 //		g.getBtnsPanel().setForeground(c);
 	}

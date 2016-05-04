@@ -57,6 +57,7 @@ public class MancalaGUI {
 		frame.setTitle("Team Fox Force-Five Mancala Game");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//frame.pack();
+		board.colorChange(this);
 	}
 
 	public JFrame getFrame(){
