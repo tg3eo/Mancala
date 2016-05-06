@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -8,6 +9,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*  Class:	MancalaTester
+*  File:	MancalaTester.java
+*  Description:	The tester class of the program. Includes an opening screen that
+*  allows the user to choose to play with 3 or 4 stones, then which board to play
+*  with, either the red board or the blue board.
+*  @author:	Riadiani Marcelita, Tom George, Thanh Bui
+*  Environment:	PC, Windows 8.1, jdk1.7.0_80, Eclipse Mars Release 4.5.0
+*  Date:	5/7/2016
+*  @version	%1% %2%
+*  @see       	java.util.EmptyStackException;
+*  History Log:	Created on April 5, 2016, 07:00 PM
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 public class MancalaTester {
 
 	private static int stones;
@@ -20,11 +34,7 @@ public class MancalaTester {
     private static JPanel p2, p3;
 
 	
-	public static void main(String[] args){
-//		MancalaBoard mb = new MancalaBoard();
-//		MancalaGUI mg = new MancalaGUI(new BoardColoredOne());
-//		Controller c = new Controller(mb, mg);
-		
+	public static void main(String[] args){		
 	    	stones = 0;
 	        frame = new JFrame();
 	        pane = frame.getContentPane();
@@ -51,14 +61,13 @@ public class MancalaTester {
 	        stones = 0;
 	        viewFrame = new JFrame();
 	        pane2 = viewFrame.getContentPane();
-	        viewOne = new JButton("View One");
-	        viewTwo = new JButton("View Two");
+	        viewOne = new JButton("Red Board");
+	        viewTwo = new JButton("Blue Board");
 	        
 	        viewLabel = new JLabel("Select View: ");
 	        p3 = new JPanel();
 	        p3.setLayout(null);
 	        viewFrame.setSize(300, 200);
-	        
 
 	        pane2.add(p3);
 	        p3.add(viewOne);
