@@ -48,6 +48,7 @@ public class Controller implements ChangeListener {
             gui.getEndButton().setText("End Turn Player A");
         else
             gui.getEndButton().setText("End Turn Player B");
+        
         for(int i = 0; i < gui.getPits().length; i++)
             if(i < 6) {
                 gui.getPits()[i].setText("B"+(i+1)+": "+mb.getPitScore(i));
@@ -64,7 +65,7 @@ public class Controller implements ChangeListener {
      * actions accordingly.
      */
     public void controllers() {
-        for(JButton btn : gui.getPits())
+        for(final JButton btn : gui.getPits())
             btn.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 	String side = btn.getText().substring(0, 1);
@@ -75,6 +76,14 @@ public class Controller implements ChangeListener {
                     }
                     else if(mb.getPlayerTurn() == 'B' && side.equals("A")){
                     	JOptionPane.showMessageDialog(null, "Invalid move!");
+                    }
+                    else if(gui.isUndoPressed() && gui.getEndButton().getText().equals("End Turn Player A") &&
+                    		side.equals("A")){
+                    	JOptionPane.showMessageDialog(null, "Invalid move! Please switch turn.");
+                    }
+                    else if(gui.isUndoPressed() && gui.getEndButton().getText().equals("End Turn Player B") &&
+                    		side.equals("B")){
+                    	JOptionPane.showMessageDialog(null, "Invalid move! Please switch turn.");
                     }
                     else{
 	                    if(side.equals("A")){

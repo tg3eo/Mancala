@@ -313,10 +313,10 @@ public class MancalaBoard {
      */
     public void gameOver() {
         if(mancalaA > mancalaB){
-        	JOptionPane.showMessageDialog(null, "Game Over! Player A is the winner!");
+        	JOptionPane.showMessageDialog(null, "Game Over! Player B is the winner!");
         }
         else{
-        	JOptionPane.showMessageDialog(null, "Game Over! Player B is the winner!");
+        	JOptionPane.showMessageDialog(null, "Game Over! Player A is the winner!");
         }
         System.exit(0);
     }

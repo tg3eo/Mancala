@@ -159,4 +159,13 @@ public class MancalaGUI {
 	public JButton getMancalaB(){
 		return mancalaB;
 	}
+	
+	/**
+	 * Method: isUndoPressed
+	 * Checks it the undo pressed is enabled or not.
+	 * @return true if it's enabled, false otherwise.
+	 */
+	public boolean isUndoPressed(){
+		return playerTurnButton.isEnabled();
+	}
 }
